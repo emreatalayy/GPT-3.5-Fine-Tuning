@@ -1,26 +1,23 @@
 import requests
-import json
 
-# API anahtarınızı buraya girin
-api_key = "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"
+api_key = "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"
 
-
-training_file_id = "file-l13cZmHxgy4vg0IR22uvkQSt"
+# Dosya yolu
+file_path = "C:\\Users\\atala\\OneDrive\\Masaüstü\\fine Tuning\\send_data3.jsonl"
 
 # API endpoint
-url = "https://api.openai.com/v1/fine_tuning/jobs"
-
+url = "https://api.openai.com/v1/files"
 # HTTP header
 headers = {
-    "Content-Type": "application/json",
     "Authorization": f"Bearer {api_key}"
 }
+with open(file_path, "rb") as f:
 
-data = {
-    "training_file": training_file_id,
-    "model": "gpt-3.5-turbo-16k"
-}
-response = requests.post(url, headers=headers, json=data)
-
-# Yanıtı yazdır
+    response = requests.post(
+        url,
+        headers=headers,
+        files={"file": f},
+        data={"purpose": "fine-tune"}
+    )
 print(response.json())
+
