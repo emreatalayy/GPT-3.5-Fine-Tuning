@@ -2,10 +2,10 @@ import requests
 import json
 
 # API anahtarınızı buraya girin
-api_key = "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"
+api_key = "api key"
 
 
-training_file_id = "file-l13cZmHxgy4vg0IR22uvkQSt"
+training_file_id = "your file ID"
 
 # API endpoint
 url = "https://api.openai.com/v1/fine_tuning/jobs"
